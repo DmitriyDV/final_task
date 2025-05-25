@@ -1,17 +1,22 @@
 from .base_page import BasePage
 from .locators import ProductPageLocators
 
-class ProductPage(BasePage):
-    def should_be_product_page(self):
-        self.go_to_push_add_to_basket()
-        self.guest_should_be_see_info_about_what_product_added_to_basket()
 
-    def go_to_push_add_to_basket(self):
-        button = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET)
-        button.click()
+class ProductPage(BasePage):
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
+    def should_success_message_disappeared(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
 
     def guest_should_be_see_info_about_what_product_added_to_basket(self):
         assert self.is_element_present(*ProductPageLocators.INFO_ABOUT_ADD_TO_BASKET)
+
+    def add_product_to_basket(self):
+        basket_button = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET_BUTTON)
+        basket_button.click()
 
     def product_in_basket(self):
         in_basket = self.browser.find_element(*ProductPageLocators.PRODUCT_ADDED_TO_BASKET).text
@@ -48,3 +53,8 @@ class ProductPage(BasePage):
     def check_price_and_total_basket_value_equals(self, product_price, total_basket_value):
         assert product_price == total_basket_value, 'The prices are different'
 
+    def guest_should_be_not_see_info_about_what_product_added_to_basket(self):
+        assert self.is_not_element_present(*ProductPageLocators.INFO_ABOUT_ADD_TO_BASKET)
+
+    def guest_should_be_see_disappearance_info_about_add_to_basket(self):
+        assert self.is_disappeared(*ProductPageLocators.INFO_ABOUT_ADD_TO_BASKET)
