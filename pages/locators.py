@@ -4,7 +4,13 @@ from selenium.webdriver.common.by import By
 class BasePageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    CURRENT_LANGUAGE = (By.CSS_SELECTOR, 'select[name="language"] option[selected]')
     USER_ICON = (By.CSS_SELECTOR, ".icon-user")
+
+class BasketPageLocators:
+    EMPTY_BASKET_TEXT = (By.CSS_SELECTOR, '#content_inner p')
+    BASKET_ITEMS = (By.CSS_SELECTOR, '.basket-items')
+    CONTINUE_SHOPPING_TEXT = (By.CSS_SELECTOR, '#content_inner p a')
 
 
 class LoginPageLocators:
