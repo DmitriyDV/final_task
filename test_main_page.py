@@ -17,6 +17,7 @@ from .pages.login_page import LoginPage
 #     page.should_be_login_link()
 
 class TestLoginPageFromMainPage:
+
     def test_guest_can_go_to_login_page(self, browser):
         link = "http://selenium1py.pythonanywhere.com/"
         page = MainPage(browser, link)
@@ -31,12 +32,12 @@ class TestLoginPageFromMainPage:
         page.open()
         page.should_be_login_page()
 
-# def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
-#     link = "http://selenium1py.pythonanywhere.com/"
-#     page = MainPage(browser, link)
-#     page.open()
-#     page.click_to_basket()
-#     basket_link = page.get_current_url()
-#     basket_page = BasketPage(browser, basket_link)
-#     basket_page.should_basket_contains_no_products()
-#     basket_page.should_basket_text_is_empty()
+    # def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
+    #     link = "http://selenium1py.pythonanywhere.com/"
+    #     page = MainPage(browser, link)
+    #     page.open()
+    #     page.click_to_basket()
+    #     basket_link = page.get_current_url()
+    #     basket_page = BasketPage(browser, basket_link)
+    #     basket_page.should_basket_contains_no_products()
+    #     basket_page.should_basket_text_is_empty()

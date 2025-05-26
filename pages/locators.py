@@ -1,11 +1,10 @@
 from selenium.webdriver.common.by import By
 
 
-class MainPageLocators:
+class BasePageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
-    BASKET_BUTTON = (By.CSS_SELECTOR, "span a.btn.btn-default")
-    ITEMS_IN_BASKET = (By.CSS_SELECTOR, "h2.col-sm-6")
-    BASKET_IS_EMPTY = (By.CSS_SELECTOR, "div p")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 
 class LoginPageLocators:
@@ -21,6 +20,13 @@ class LoginPageLocators:
     LOGIN_FORM_BUTTON = (By.XPATH, "//*[@value='Log In']")
 
 
+class MainPageLocators:
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    BASKET_BUTTON = (By.CSS_SELECTOR, "span a.btn.btn-default")
+    ITEMS_IN_BASKET = (By.CSS_SELECTOR, "h2.col-sm-6")
+    BASKET_IS_EMPTY = (By.CSS_SELECTOR, "div p")
+
+
 class ProductPageLocators:
     ADD_TO_BASKET = (By.CSS_SELECTOR, "button.btn-add-to-basket")  # кнопка "добавить в корзину"
     INFO_ABOUT_ADD_TO_BASKET = (By.CSS_SELECTOR,
@@ -34,8 +40,3 @@ class ProductPageLocators:
     ALERT_PRODUCT_NAME = (By.CSS_SELECTOR, '.alert-success .alertinner strong ')
     TOTAL_BASKET_VALUE = (By.CSS_SELECTOR, '.alert-info .alertinner strong ')
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, 'div.alert-success')
-
-
-class BasePageLocators:
-    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
-    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
