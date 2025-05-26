@@ -1,7 +1,7 @@
 from selenium.common.exceptions import NoSuchElementException, NoAlertPresentException, TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from .locators import BasePageLocators, MainPageLocators
+from .locators import BasePageLocators
 import math
 
 
@@ -12,7 +12,7 @@ class BasePage():
         self.browser.implicitly_wait(timeout)
 
     def click_to_basket(self):
-        button_basket = self.browser.find_element(*MainPageLocators.BASKET_BUTTON)
+        button_basket = self.browser.find_element(*BasePageLocators.BASKET_BUTTON)
         button_basket.click()
 
     def click_to_login_page(self):
@@ -50,7 +50,6 @@ class BasePage():
 
     def open(self):
         self.browser.get(self.url)
-        self.browser.maximize_window()
 
     def should_be_authorized_user(self):
         assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \

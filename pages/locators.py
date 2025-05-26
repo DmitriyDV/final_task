@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 
 
 class BasePageLocators:
+    BASKET_BUTTON = (By.CSS_SELECTOR, "span a.btn.btn-default")
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
     CURRENT_LANGUAGE = (By.CSS_SELECTOR, 'select[name="language"] option[selected]')
@@ -28,7 +29,6 @@ class LoginPageLocators:
 
 class MainPageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
-    BASKET_BUTTON = (By.CSS_SELECTOR, "span a.btn.btn-default")
     ITEMS_IN_BASKET = (By.CSS_SELECTOR, "h2.col-sm-6")
     BASKET_IS_EMPTY = (By.CSS_SELECTOR, "div p")
 
